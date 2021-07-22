@@ -124,4 +124,14 @@ router.get('/product/show',function(req,res){
     })
 })
 
+router.get('/product/all',function(req,res){
+    Product.find().then(function(data){
+        res.status(200).json({data,success:true})
+        console.log("showed")
+    }).catch(function(e){
+        res.status(500).json({error:e})
+        console.log("not")
+    })
+})
+
 module.exports = router;
