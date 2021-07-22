@@ -52,4 +52,40 @@ else{
 })
 
 
+//update sir ko
+router.put('/product/update/:id',
+function(req,res){
+    const product_name = req.body.product_name
+    const product_price = req.body.product_price
+    const product_desc = req.body.product_desc
+    const product_id = req.params.id
+
+
+    Product.updateOne({_id : product_id},
+        {product_desc:product_desc}
+        )
+        .then(function(){
+            res.status(200).json({message:"Updated"})
+        })
+        .catch(function(e){
+            res.status(500).json({error:e})
+        })
+})
+
+// router.put('/product/update/:id',function(req,res){
+//     const id=req.params.id;
+//     Product.updateOne({_id:id},req.body).then(function(){
+//         res.status(200).json({
+//             message:"Success"
+//         })
+    
+//     }).catch((error)=>{
+//         res.status(404).json({
+//             error:"error"
+//         })
+//     })
+
+// })
+
+
 module.exports = router;
