@@ -88,4 +88,29 @@ function(req,res){
 // })
 
 
+
+router.delete('/product/delete/:id', auth.verifyUser, auth.verifyAdmin,function(req,res){
+    const id=req.params.id;
+    Product.deleteOne({_id : id}).then(function(){
+        res.status(200).json({success:true,message:"Products deleted"})
+        console.log("deleted!!")
+    });
+
+})
+
+
+// delete
+router.delete('/product/delete/:id',
+auth.verifyUser, auth.verifyAdmin,
+   function(req,res){
+    const id = req.params.id;
+    Product.deleteOne({_id:id})
+    .then(function(){
+        res.send("deleted!!");
+    })
+    .catch(function(e){
+        res.status(500).json({error:e})
+    })
+})
+
 module.exports = router;
