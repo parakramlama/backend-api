@@ -5,6 +5,7 @@ const{check, validationResult} = require('express-validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth')
+const upload = require('../middleware/fileupload')
 
 router.post('/product/insert', 
 auth.verifyUser, 
