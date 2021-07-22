@@ -113,4 +113,15 @@ auth.verifyUser, auth.verifyAdmin,
     })
 })
 
+
+router.get('/product/show',function(req,res){
+    Product.find()
+    .then(function(data){
+        res.json({
+            success : true,
+            data  : data
+        })
+    })
+})
+
 module.exports = router;
