@@ -134,4 +134,33 @@ router.get('/product/all',function(req,res){
     })
 })
 
+
+router.get('/product/singleshow/:id',
+//auth.verifyUser,
+function(req,res){
+    const product_id = req.params.id;
+    Product.findOne({_id:product_id})
+    .then(function(data){
+        res.status(200).json(
+            //data
+            {
+            success:true,data:[data]
+        }
+        )
+    })
+    .catch(function(e){
+        res.status(500).json({error : e})
+    })
+})
+router.get('/product/single/:id',function(req,res){
+    const id=req.params.id;
+  Product.findOne({_id:id}).then(function(data){
+        res.status(200).json(data)
+        console.log('Single')
+    }).catch(function(e){
+        res.status(500).json({error:e})
+        console.log("erroe")
+    })
+})
+
 module.exports = router;
