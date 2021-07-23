@@ -24,4 +24,21 @@ function(req, res){
 })
 
 
+router.delete('/cart/:id', auth.verifyUser, function(req, res){
+    Cart.deleteOne({_id : req.params.id})
+    .then(data=>{
+        return res.status(200).json({
+            success : true,
+            message : "Cart Items",
+            data : data
+        })
+    })
+    .catch(err=>{
+            return res.status(500).json({
+                success : false,
+                message : err.message
+            })
+        })
+})
+
 module.exports=router;
