@@ -61,4 +61,37 @@ auth.verifyUser, auth.verifyAdmin,
     })
 })
 
+// router.put('/article/update/:id',function(req,res){
+//     const id=req.params.id;
+//     Article.updateOne({_id:id},req.body).then(function(){
+//         res.status(200).json({
+//             message:"Success"
+//         })
+    
+//     }).catch((error)=>{
+//         res.status(404).json({
+//             error:"error"
+//         })
+//     })
+
+// })
+router.put('/article/update/:id', 
+ auth.verifyUser, auth.verifyAdmin,
+function(req,res){
+    const article_title = req.body.article_title
+    const article_body = req.body.article_body
+    const article_id = req.params.id
+
+    Article.updateOne({_id : article_id},
+        {article_title : article_title, article_body:article_body}
+        )
+        .then(function(){
+            // console.log(article_id);
+            res.status(200).json({message:"Updated"})
+        })
+        .catch(function(e){
+            res.status(500).json({error:e})
+        })
+})
+
 module.exports=router;    
