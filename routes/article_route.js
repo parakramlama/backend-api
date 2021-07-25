@@ -48,4 +48,17 @@ router.post('/article/insert',
         })
     })
 
+router.delete('/article/delete/:id',
+auth.verifyUser, auth.verifyAdmin, 
+ function(req,res){
+    const id22=req.params.id;
+    Article.deleteOne({_id:id22})
+    .then(function(){
+        res.send("deleted!!");
+    })
+    .catch(function(e){
+        res.status(500).json({error:e})
+    })
+})
+
 module.exports=router;    
