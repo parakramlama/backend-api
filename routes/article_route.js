@@ -39,5 +39,13 @@ router.post('/article/insert',
         }   
     })
 
+    router.get('/article/show',function(req,res){
+        Article.find().then(function(data){
+            res.json({
+                success : true,
+                data  : data
+            })
+        })
+    })
 
 module.exports=router;    
