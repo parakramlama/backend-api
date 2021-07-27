@@ -15,4 +15,14 @@ router.post('/insert/contact',function(req,res){
         })
 })
 
+router.get('/contact/all',function(req,res){
+    Contact.find().then(function(data){
+        res.status(200).json({data,success:true, message:"Mesage sent!!!"})
+        console.log("showed")
+    }).catch(function(e){
+        res.status(500).json({error:e})
+        console.log("not")
+    })
+})
+
 module.exports= router;
