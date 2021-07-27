@@ -25,4 +25,13 @@ router.get('/contact/all',function(req,res){
     })
 })
 
+router.delete('/delete/contact/:id',function(req,res){
+    const id=req.params.id;
+    Contact.deleteOne({_id : id}).then(function(){
+        res.status(200).json({success:true,message:"Contact deleted"})
+        console.log("deleted!!")
+    });
+
+})
+
 module.exports= router;
