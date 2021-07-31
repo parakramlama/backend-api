@@ -42,3 +42,26 @@ describe('Testing for user insert',()=>{
     })
     })
 })
+
+
+//insert product
+
+describe('Testing for product insert',()=>{
+ 
+    it('addProductTest',()=>{
+    
+    const addproduct={
+    
+        "product_img":"good",
+        "product_name":"Poco",
+        "product_price":"3456789",
+        "product_desc":"Good"
+    }
+    
+    return pro.create(addproduct)
+    .then((products)=>{
+    expect(products.product_name).toEqual('Poco')
+    })
+    })
+    })
+    
