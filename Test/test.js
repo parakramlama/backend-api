@@ -96,3 +96,22 @@ it('delete test', async () => {
 
     expect(status.ok).toBe(1);
 });
+
+
+
+
+// // // // //
+
+// update testing 
+
+it('to test the update', async () => {
+
+    return pro.findOneAndUpdate({_id :Object('606c114131a01f35b4d38e25')},
+
+{$set : {productName:'ram'}})
+
+.then((products)=>{
+
+    expect(products.productName).toEqual('ram')
+})
+})
