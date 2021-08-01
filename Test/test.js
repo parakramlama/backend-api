@@ -65,3 +65,22 @@ describe('Testing for product insert',()=>{
     })
     })
     
+
+
+//insert contact
+
+describe('Testing for contact',()=>{
+    it('addProductTest',()=>{
+
+    const subscription={
+
+    'email':'lama@gmail.com',
+    'help':"msg"
+    }
+    
+    return sub.create(subscription)
+    .then((subs)=>{
+    expect(subs.email).toEqual('khatri@gmail.com')
+    })
+    })
+    })
