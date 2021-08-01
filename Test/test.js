@@ -64,7 +64,8 @@ describe('Testing for product insert',()=>{
     })
     })
     })
-    
+
+    // // // // //
 
 
 //insert contact
@@ -84,3 +85,14 @@ describe('Testing for contact',()=>{
     })
     })
     })
+
+
+// // // // //
+
+//delete testing
+
+it('delete test', async () => {
+    const status = await pro.deleteMany();
+
+    expect(status.ok).toBe(1);
+});
