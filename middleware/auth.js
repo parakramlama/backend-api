@@ -2,6 +2,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user_model');
 
 
+
+// check whether user is authorized or not
+
 module.exports.verifyUser = function(req, res, next){
     try{
         const token = req.headers.authorization.split(" ")[1]

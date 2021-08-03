@@ -160,7 +160,7 @@ router.get('/product/single/:id',function(req,res){
         console.log('Single')
     }).catch(function(e){
         res.status(500).json({error:e})
-        console.log("erroe")
+        console.log("error")
     })
 })
 

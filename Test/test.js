@@ -3,8 +3,8 @@ const mongoose=require('mongoose');
 const Registration = require('../models/user_model');
 const pro=require('../models/product_model');
 const product=require('../models/product_model');
-const sub=require('../models/contact_model');
-const subscribe=require('../models/contact_model');
+const sub=require('../models/contact_models');
+const subscribe=require('../models/contact_models');
 
 const url='mongodb://localhost"27017/userTest';
 
