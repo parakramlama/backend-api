@@ -28,17 +28,17 @@ describe('Testing for user insert',()=>{
 
     const register={
 
-        "user_username":"hari",
-        "user_email":"hari@gmail.com",
+        "user_username":"jack",
+        "user_email":"jack@gmail.com",
         "user_contactno":"9885465156",
-        "user_password":"passw"
+        "user_password":"jack"
     
     }
     
     return registration.create(register)
      
     .then((usersData)=>{
-        expect(usersData.user_username).toEqual('hari')
+        expect(usersData.user_username).toEqual('jack')
     })
     })
 })
@@ -81,7 +81,7 @@ describe('Testing for contact',()=>{
     
     return sub.create(subscription)
     .then((subs)=>{
-    expect(subs.email).toEqual('khatri@gmail.com')
+    expect(subs.email).toEqual('lama@gmail.com')
     })
     })
     })
@@ -102,7 +102,7 @@ it('delete test', async () => {
 
 // // // // //
 
-// update testing 
+// // update testing 
 
 it('to test the update', async () => {
 
